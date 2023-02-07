@@ -1,0 +1,318 @@
+{
+	"informações" : {
+		"_postman_id" : " 332d9b02-964e-41d0-ae65-677e07109a0c " ,
+		"nome" : " Módulo_13 " ,
+		"schema" : " https://schema.getpostman.com/json/collection/v2.1.0/collection.json "
+	},
+	"artigo" : [
+		{
+			"nome" : " Produtos " ,
+			"artigo" : [
+				{
+					"name" : " Listar produtos por ID " ,
+					"evento" : [
+						{
+							"ouvir" : " teste " ,
+							"script" : {
+								"executivo" : [
+									" pm.test( \" Validar produto da lista \" , function () { \r " ,
+									"     pm.expect(pm.response.text()).to.include( \" Acessório para Iphone \" ); \r " ,
+									" }); \r " ,
+									" \r " ,
+									" pm.test( \" Código de status é 200 \" , function () { \r " ,
+									"     pm.response.to.have.status(200); \r " ,
+									" }); "
+								],
+								"tipo" : " texto/javascript "
+							}
+						}
+					],
+					"pedido" : {
+						"autenticação" : {
+							"tipo" : " portador " ,
+							"portador" : [
+								{
+									"chave" : " token " ,
+									"value" : " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbWlhb2ZpbGlwZUBob3RtYWlsLmNvbSIsInBhc3N3b3JkIjoiZGFtaWFvMTIzIiwiaWF0IjoxNjM1MDAwMjM1LCJleHAiOjE2MzUwMDA4MzV9.WO9k7cwItBVJUAb1fMbV1Vg5Z4kg_tAKtuyasc_T04g " ,
+									"tipo" : " string "
+								}
+							]
+						},
+						"método" : " GET " ,
+						"cabeçalho" : [],
+						"url" : {
+							"raw" : " http://localhost:3000/produtos/niiWCY6kLLRHXPdl " ,
+							"protocolo" : " http " ,
+							"hospedeiro" : [
+								" localhost "
+							],
+							"porta" : " 3000 " ,
+							"caminho" : [
+								" produtos " ,
+								" niiWCY6kLLRHXPdl "
+							]
+						}
+					},
+					"resposta" : []
+				},
+				{
+					"name" : " Listar produtos " ,
+					"evento" : [
+						{
+							"ouvir" : " teste " ,
+							"script" : {
+								"executivo" : [
+									" pm.test( \" Validar produto da lista \" , function () { \r " ,
+									"     pm.expect(pm.response.text()).to.include( \" Logitech MX Vertical \" ); \r " ,
+									" }); \r " ,
+									" \r " ,
+									" pm.test( \" Código de status é 200 \" , function () { \r " ,
+									"     pm.response.to.have.status(200); \r " ,
+									" }); "
+								],
+								"tipo" : " texto/javascript "
+							}
+						}
+					],
+					"pedido" : {
+						"método" : " GET " ,
+						"cabeçalho" : [
+							{
+								"chave" : " Autorização " ,
+								"valor" : " {{Token}} " ,
+								"tipo" : " texto "
+							}
+						],
+						"url" : {
+							"raw" : " http://localhost:3000/produtos/ " ,
+							"protocolo" : " http " ,
+							"hospedeiro" : [
+								" localhost "
+							],
+							"porta" : " 3000 " ,
+							"caminho" : [
+								" produtos " ,
+								" "
+							]
+						}
+					},
+					"resposta" : []
+				},
+				{
+					"nome" : " Editar Produto " ,
+					"pedido" : {
+						"método" : " COLOCAR " ,
+						"cabeçalho" : [
+							{
+								"chave" : " Autorização " ,
+								"valor" : " {{Token}} " ,
+								"tipo" : " texto "
+							}
+						],
+						"corpo" : {
+							"modo" : " bruto " ,
+							"raw" : " { \r\n   \" nome \" : \" Iphone 12 Pro \" , \r\n   \" preço \" : 999, \r\n   \" descricao \" : \" Smartphone \ " , \r\n   \" quantidade \" : 25 \r\n } " ,
+							"opções" : {
+								"cru" : {
+									"idioma" : " json "
+								}
+							}
+						},
+						"url" : {
+							"raw" : " {{global}}produtos/AoIeM19cOq3wXupf " ,
+							"hospedeiro" : [
+								" {{global}}produtos "
+							],
+							"caminho" : [
+								" AoIeM19cOq3wXupf "
+							]
+						}
+					},
+					"resposta" : []
+				},
+				{
+					"nome" : " Cadastrar Produto " ,
+					"evento" : [
+						{
+							"ouvir" : " teste " ,
+							"script" : {
+								"executivo" : [
+									" pm.test( \" Validar mensagem de sucesso \" , function () { \r " ,
+									"     pm.expect(pm.response.text()).to.include( \" Cadastro realizado com sucesso \" ); \r " ,
+									" }); \r " ,
+									" \r " ,
+									" pm.test( \" Código de status é 200 \" , function () { \r " ,
+									"     pm.response.to.have.status(201); \r " ,
+									" }); "
+								],
+								"tipo" : " texto/javascript "
+							}
+						}
+					],
+					"pedido" : {
+						"método" : " POST " ,
+						"cabeçalho" : [
+							{
+								"chave" : " Autorização " ,
+								"valor" : " {{Token}} " ,
+								"tipo" : " texto "
+							}
+						],
+						"corpo" : {
+							"modo" : " bruto " ,
+							"raw" : " { \r\n   \" nome \" : \" Acessório para Iphone \" , \r\n   \" preço \" : 25 , \r\n   \" descricao \" : \" Celular \ " , \r\n   \" quantidade \" : 100 \r\n } " ,
+							"opções" : {
+								"cru" : {
+									"idioma" : " json "
+								}
+							}
+						},
+						"url" : {
+							"raw" : " http://localhost:3000/produtos " ,
+							"protocolo" : " http " ,
+							"hospedeiro" : [
+								" localhost "
+							],
+							"porta" : " 3000 " ,
+							"caminho" : [
+								" produtos "
+							]
+						}
+					},
+					"resposta" : []
+				},
+				{
+					"name" : " Exclusão de produtos " ,
+					"evento" : [
+						{
+							"ouvir" : " teste " ,
+							"script" : {
+								"executivo" : [
+									" pm.test( \" Código de status é 200 \" , function () { \r " ,
+									"     pm.response.to.have.status(200); \r " ,
+									" }); \r " ,
+									" pm.test( \" Validar mensagem \" , function () { \r " ,
+									"     pm.expect(pm.response.text()).to.include( \" Registro excluído com sucesso \" ); \r " ,
+									" }); "
+								],
+								"tipo" : " texto/javascript "
+							}
+						}
+					],
+					"pedido" : {
+						"autenticação" : {
+							"tipo" : " portador " ,
+							"portador" : [
+								{
+									"chave" : " token " ,
+									"value" : " eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbWlhb2ZpbGlwZUBob3RtYWlsLmNvbSIsInBhc3N3b3JkIjoiZGFtaWFvMTIzIiwiaWF0IjoxNjM1MDA0MTYyLCJleHAiOjE2MzUwMDQ3NjJ9.d4Af-_E6wS4vxgYdPXA0tylVgNQF5TOOQb75aR1SyZ4 " ,
+									"tipo" : " string "
+								}
+							]
+						},
+						"método" : " EXCLUIR " ,
+						"cabeçalho" : [],
+						"url" : {
+							"raw" : " {{global}}produtos/niiWCY6kLLRHXPdl " ,
+							"hospedeiro" : [
+								" {{global}}produtos "
+							],
+							"caminho" : [
+								" niiWCY6kLLRHXPdl "
+							]
+						}
+					},
+					"resposta" : []
+				}
+			]
+		},
+		{
+			"nome" : " Criar Usuario " ,
+			"pedido" : {
+				"método" : " POST " ,
+				"cabeçalho" : [],
+				"corpo" : {
+					"modo" : " bruto " ,
+					"raw" : " { \r\n   \" nome \" : \" Gabriella Teste \" , \r\n   \" email \" : \" gabriellateste@teste.com \" , \r\n   \" senha \" : \" Gabriella@123 \" , \r\n   \" administrador \" : \" true \"\r\n } " ,
+					"opções" : {
+						"cru" : {
+							"idioma" : " json "
+						}
+					}
+				},
+				"url" : {
+					"raw" : " http://localhost:3000/usuarios " ,
+					"protocolo" : " http " ,
+					"hospedeiro" : [
+						" localhost "
+					],
+					"porta" : " 3000 " ,
+					"caminho" : [
+						" usuários "
+					]
+				}
+			},
+			"resposta" : []
+		},
+		{
+			"name" : " Listar usuários " ,
+			"pedido" : {
+				"método" : " GET " ,
+				"cabeçalho" : [],
+				"url" : {
+					"raw" : " http://localhost:3000/usuarios/Tt1tntOjXoLcOhfj " ,
+					"protocolo" : " http " ,
+					"hospedeiro" : [
+						" localhost "
+					],
+					"porta" : " 3000 " ,
+					"caminho" : [
+						" usuários " ,
+						" Tt1tntOjXoLcOhfj "
+					]
+				}
+			},
+			"resposta" : []
+		},
+		{
+			"nome" : " Entrar " ,
+			"evento" : [
+				{
+					"ouvir" : " teste " ,
+					"script" : {
+						"executivo" : [
+							" const resposta = pm.response.json(); \r " ,
+							" pm.globals.set( \" Token \" , resposta.autorização); "
+						],
+						"tipo" : " texto/javascript "
+					}
+				}
+			],
+			"pedido" : {
+				"método" : " POST " ,
+				"cabeçalho" : [],
+				"corpo" : {
+					"modo" : " bruto " ,
+					"raw" : " { \r\n   \" email \" : \" gabriellateste@teste.com \" , \r\n   \" senha \" : \" gabriella@123 \"\r\n } " ,
+					"opções" : {
+						"cru" : {
+							"idioma" : " json "
+						}
+					}
+				},
+				"url" : {
+					"raw" : " http://localhost:3000/login " ,
+					"protocolo" : " http " ,
+					"hospedeiro" : [
+						" localhost "
+					],
+					"porta" : " 3000 " ,
+					"caminho" : [
+						" entrar "
+					]
+				}
+			},
+			"resposta" : []
+		}
+	]
+}
